@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  node:
+    image: node:18.6
+    user: node
+    working_dir: /home/node
+    command: tail -f /dev/null
+    ports:
+      - ${API_PORT:-3000}:3000
+      - ${ADMIN_PORT:-3001}:3001
+      - ${STORE_PORT:-3002}:3002
+    volumes:
+      - ../ape-commerce:/home/node/ape-commerce
+      - ../ape-framework:/home/node/ape-framework
+      - ../ape-common:/home/node/ape-common
+    environment:
+      NODE_ENV: development
+      NODE_PATH: src
+
+  redoc:
+    build:
+      context: redoc
+    ports:
+      - ${REDOC_PORT:-4000}:80
+    environment:
+      SPEC_URL: http://localhost:${API_PORT:-3000}/doc
+
+  hoppscotch:
+    image: hoppscotch/hoppscotch
+    ports:
+      - ${HOPPSCOTCH_PORT:-5000}:3000
+
+  minio:
+    image: minio/minio
+    command: server /data --console-address ':9001'
+    ports:
+      - ${MINIO_PORT:-6000}:9000
+      - ${MINIO_CONSOLE_PORT:-6001}:9001
+    volumes:
+      - minio-data:/data
+    environment:
+      MINIO_ROOT_USER: root
+      MINIO_ROOT_PASSWORD: password
+
+  mariadb:
+    image: mariadb:10
+    ports:
+      - ${MARIADB_PORT:-7000}:3306
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      MARIADB_DATABASE: ape-commerce
+      MARIADB_USER: ape-commerce
+      MARIADB_PASSWORD: password
+      MARIADB_ROOT_PASSWORD: password
+
+  cloudbeaver:
+    image: dbeaver/cloudbeaver
+    ports:
+      - ${CLOUDBEAVER_PORT:-7001}:8978
+    volumes:
+      - cloudbeaver-data:/opt/cloudbeaver/workspace
+
+  redis:
+    image: redis:7
+    ports:
+      - ${REDIS_PORT:-8000}:6379
+    volumes:
+      - redis-data:/data
+
+  redis-insight:
+    image: redislabs/redisinsight
+    ports:
+      - ${REDIS_INSIGHT_PORT:-8001}:8001
+    volumes:
+      - redis-insight-data:/db
+
+  bull-dashboard:
+    image: mattsyms/bull-dashboard
+    ports:
+      - ${BULL_DASHBOARD_PORT:-8002}:3000
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      QUEUE_PREFIX: 'mq'
+      QUEUE_LIST: 'sync'
+
+  maildev:
+    image: maildev/maildev
+    ports:
+      - ${MAILDEV_SMTP_PORT:-9000}:1025
+      - ${MAILDEV_UI_PORT:-9001}:1080
+
+volumes:
+  minio-data:
+  mariadb-data:
+  cloudbeaver-data:
+  redis-data:
+  redis-insight-data:
