@@ -83,7 +83,7 @@ services:
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      QUEUE_PREFIX: 'mq'
+      QUEUE_PREFIX: mq
       QUEUE_LIST: 'sync'
 
   maildev:
