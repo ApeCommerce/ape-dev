@@ -2,14 +2,14 @@
 
 The provided [Docker Compose](https://docs.docker.com/compose) stack defines a complete environment for local development.
 
-It is composed of a Node.js container and required services:
+It is composed of a Node.js container and other required services:
 
 - MinIO: Object storage
 - MariaDB: Primary database
 - Redis: Cache / queues
 - MailDev SMTP: Mail proxy
 
-A set of tools is included to ease development. These services are optional and can be commented out in the `docker-compose.yml` file:
+Tools are included to ease development. They are optional and can be commented out in the `docker-compose.yml` file:
 
 - ReDoc: API documentation
 - Hoppscotch: HTTP client
@@ -18,6 +18,8 @@ A set of tools is included to ease development. These services are optional and 
 - Redis Insight: Cache manager
 - Bull Dashboard: Queues manager
 - MailDev UI: Mail box
+
+## Setup
 
 To customize local ports on which services are exposed, create a `.env` file:
 
@@ -58,7 +60,7 @@ Get a Node.js container shell:
 docker compose exec node bash
 ```
 
-By default, all `ape-` repositories are mounted under Node.js container's working directory. Mounts can be customized in the `docker-compose.yml` file:
+These repositories are mounted under Node.js container's working directory. Mounts can be customized as well in the `docker-compose.yml` file:
 
 | Repository                 | Directory       |
 | -------------------------- | --------------- |
