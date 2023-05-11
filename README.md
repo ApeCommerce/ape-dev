@@ -62,7 +62,7 @@ Get a shell from Node.js container:
 docker compose exec node bash
 ```
 
-Ape repositories are all mounted into Node.js container by default, under the working directory:
+Ape repositories are all mounted by default into the dev container, under the working directory:
 
 | Repository                 | Directory       |
 | -------------------------- | --------------- |
