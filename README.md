@@ -1,15 +1,15 @@
-# Ape Dev
+# Ape Dev Stack
 
 The provided [Docker Compose](https://docs.docker.com/compose) stack defines a complete environment for local development.
 
-It is composed of a Node.js container and recommended framework dependencies:
+It is composed of a Node.js dev container, and recommended Ape Framework's dependencies:
 
 - MinIO: Object storage
 - MariaDB: Primary database
-- Redis: Cache / queues
+- Redis: Cache, queues
 - MailDev SMTP: Mail proxy
 
-A set of tools is also included to ease development:
+A set of development tools is also included:
 
 - ReDoc: API documentation
 - Hoppscotch: HTTP client
@@ -18,8 +18,6 @@ A set of tools is also included to ease development:
 - Redis Insight: Cache manager
 - Bull Dashboard: Queues manager
 - MailDev UI: Mail box
-
-Services can be customized in the `docker-compose.yml` file or commented out if not needed.
 
 ## Setup
 
@@ -62,12 +60,10 @@ Get a shell from Node.js container:
 docker compose exec node bash
 ```
 
-Ape repositories are all mounted by default into the dev container, under the working directory:
+The dev container is configured to mount all Ape repositories into its working directory (`/home/node`).
 
 | Repository                 | Directory       |
 | -------------------------- | --------------- |
-| [Ape Commerce](README.md)  | `ape-commerce`  |
-| [Ape Framework](README.md) | `ape-framework` |
-| [Ape Common](README.md)    | `ape-common`    |
-
-Mounts can be customized as well in the `docker-compose.yml` file.
+| [Ape Commerce](README.md)  | `./ape-commerce`  |
+| [Ape Framework](README.md) | `./ape-framework` |
+| [Ape Common](README.md)    | `./ape-common`    |
