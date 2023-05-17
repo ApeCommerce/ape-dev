@@ -16,7 +16,6 @@ services:
       - ../ape-common:/home/node/ape-common
     environment:
       NODE_ENV: development
-      NODE_PATH: src
 
   redoc:
     build:
