@@ -19,9 +19,9 @@ A set of tools is also included to ease development:
 - Bull Dashboard: Queues manager
 - MailDev UI: Mail box
 
-## Setup
-
 Services can be customized in the `docker-compose.yml` file or commented out if not needed.
+
+## Setup
 
 To customize local ports on which services are exposed, create a `.env` file:
 
@@ -37,22 +37,22 @@ docker compose up -d
 
 ## Services
 
-| Name           | Local URL             | Docker URL     | User / Password     |
-| -------------- | --------------------- | -------------- | ------------------- |
-| API            | http://localhost:3000 |                |                     |
-| Admin          | http://localhost:3001 |                |                     |
-| Store          | http://localhost:3002 |                |                     |
-| ReDoc          | http://localhost:4000 |                |                     |
-| Hoppscotch     | http://localhost:5000 |                |                     |
-| MinIO          | `localhost:6000`      | `minio:9000`   | `root` / `password` |
-| MinIO Console  | http://localhost:6001 |                |                     |
-| MariaDB        | `localhost:7000`      | `mariadb:3306` | `root` / `password` |
-| CloudBeaver    | http://localhost:7001 |                |                     |
-| Redis          | `localhost:8000`      | `redis:6379`   |                     |
-| Redis Insight  | http://localhost:8001 |                |                     |
-| Bull Dashboard | http://localhost:8002 |                |                     |
-| MailDev SMTP   | `localhost:9000`      | `maildev:1025` |                     |
-| MailDev UI     | http://localhost:9001 |                |                     |
+| Name           | Local URL               | Docker URL     | User / Password     |
+| -------------- | ----------------------- | -------------- | ------------------- |
+| API            | <http://localhost:3000> |                |                     |
+| Admin          | <http://localhost:3001> |                |                     |
+| Store          | <http://localhost:3002> |                |                     |
+| ReDoc          | <http://localhost:4000> |                |                     |
+| Hoppscotch     | <http://localhost:5000> |                |                     |
+| MinIO          | `localhost:6000`        | `minio:9000`   | `root` / `password` |
+| MinIO Console  | <http://localhost:6001> |                |                     |
+| MariaDB        | `localhost:7000`        | `mariadb:3306` | `root` / `password` |
+| CloudBeaver    | <http://localhost:7001> |                |                     |
+| Redis          | `localhost:8000`        | `redis:6379`   |                     |
+| Redis Insight  | <http://localhost:8001> |                |                     |
+| Bull Dashboard | <http://localhost:8002> |                |                     |
+| MailDev SMTP   | `localhost:9000`        | `maildev:1025` |                     |
+| MailDev UI     | <http://localhost:9001> |                |                     |
 
 ## Development
 
