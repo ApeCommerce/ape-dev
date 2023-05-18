@@ -59,7 +59,7 @@ Get a shell from Node.js container:
 docker compose exec node bash
 ```
 
-The dev container is configured to mount all Ape repositories into its working directory (`/home/node`).
+The node service is configured to mount all Ape repositories into container's working directory (`/home/node`):
 
 | Repository                 | Directory         |
 | -------------------------- | ----------------- |
