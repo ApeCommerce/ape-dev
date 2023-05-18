@@ -61,8 +61,8 @@ docker compose exec node bash
 
 The node service is configured to mount all Ape repositories into container's working directory (`/home/node`):
 
-| Repository                 | Directory         |
-| -------------------------- | ----------------- |
-| [Ape Commerce](README.md)  | `./ape-commerce`  |
-| [Ape Framework](README.md) | `./ape-framework` |
-| [Ape Common](README.md)    | `./ape-common`    |
+| Repository                                                    | Directory         |
+| ------------------------------------------------------------- | ----------------- |
+| [Ape Commerce](https://github.com/ApeCommerce/ape-commerce)   | `./ape-commerce`  |
+| [Ape Framework](https://github.com/ApeCommerce/ape-framework) | `./ape-framework` |
+| [Ape Common](https://github.com/ApeCommerce/ape-common)       | `./ape-common`    |
