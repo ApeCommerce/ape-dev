@@ -7,7 +7,6 @@ It is composed of a Node.js dev container, and recommended Ape Framework's depen
 - MinIO: Object storage
 - MariaDB: Primary database
 - Redis: Cache, queues
-- MailDev SMTP: Mail proxy
 
 A set of development tools is also included:
 
@@ -17,7 +16,7 @@ A set of development tools is also included:
 - CloudBeaver: Database manager
 - Redis Insight: Cache manager
 - Bull Dashboard: Queues manager
-- MailDev UI: Mail box
+- MailDev: SMTP proxy, mail box
 
 ## Setup
 
@@ -62,8 +61,8 @@ docker compose exec node bash
 
 The dev container is configured to mount all Ape repositories into its working directory (`/home/node`).
 
-| Repository                 | Directory       |
-| -------------------------- | --------------- |
+| Repository                 | Directory         |
+| -------------------------- | ----------------- |
 | [Ape Commerce](README.md)  | `./ape-commerce`  |
 | [Ape Framework](README.md) | `./ape-framework` |
 | [Ape Common](README.md)    | `./ape-common`    |
