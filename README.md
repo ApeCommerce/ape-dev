@@ -20,7 +20,7 @@ A set of development tools is also included:
 
 ## Setup
 
-To customize local ports on which services are exposed, create a `.env` file:
+To customize local ports on which services are exposed, create an `.env` file:
 
 ```
 cp .env.default .env
