@@ -13,7 +13,6 @@ services:
     volumes:
       - ../ape-commerce:/home/node/ape-commerce
       - ../ape-framework:/home/node/ape-framework
-      - ../ape-common:/home/node/ape-common
     environment:
       NODE_ENV: development
 
@@ -30,22 +29,10 @@ services:
     ports:
       - ${HOPPSCOTCH_PORT:-5000}:3000
 
-  minio:
-    image: minio/minio
-    command: server /data --console-address ':9001'
-    ports:
-      - ${MINIO_PORT:-6000}:9000
-      - ${MINIO_CONSOLE_PORT:-6001}:9001
-    volumes:
-      - minio-data:/data
-    environment:
-      MINIO_ROOT_USER: root
-      MINIO_ROOT_PASSWORD: password
-
   mariadb:
     image: mariadb:10
     ports:
-      - ${MARIADB_PORT:-7000}:3306
+      - ${MARIADB_PORT:-6000}:3306
     volumes:
       - mariadb-data:/var/lib/mysql
     environment:
@@ -57,9 +44,21 @@ services:
   cloudbeaver:
     image: dbeaver/cloudbeaver
     ports:
-      - ${CLOUDBEAVER_PORT:-7001}:8978
+      - ${CLOUDBEAVER_PORT:-6001}:8978
     volumes:
       - cloudbeaver-data:/opt/cloudbeaver/workspace
+
+  minio:
+    image: minio/minio
+    command: server /data --console-address ':9001'
+    ports:
+      - ${MINIO_PORT:-7000}:9000
+      - ${MINIO_CONSOLE_PORT:-7001}:9001
+    volumes:
+      - minio-data:/data
+    environment:
+      MINIO_ROOT_USER: root
+      MINIO_ROOT_PASSWORD: password
 
   redis:
     image: redis:7
@@ -75,10 +74,10 @@ services:
     volumes:
       - redis-insight-data:/db
 
-  bull-dashboard:
-    image: mattsyms/bull-dashboard
+  bullmq-dashboard:
+    image: mattsyms/bull-board
     ports:
-      - ${BULL_DASHBOARD_PORT:-8002}:3000
+      - ${BULLMQ_DASHBOARD_PORT:-8002}:3000
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
@@ -92,8 +91,8 @@ services:
       - ${MAILDEV_UI_PORT:-9001}:1080
 
 volumes:
-  minio-data:
   mariadb-data:
   cloudbeaver-data:
+  minio-data:
   redis-data:
   redis-insight-data:
