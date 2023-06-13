@@ -23,7 +23,7 @@ It is composed of a Node.js container, recommended Ape Framework's dependencies 
 
 ## Setup
 
-To customize local ports on which services are exposed, create a `.env` file:
+To customize services local ports, create a `.env` file:
 
 ```
 cp .env.sample .env
