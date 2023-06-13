@@ -1,4 +1,4 @@
-# Ape Dev Stack
+# Ape development stack
 
 The included [Docker Compose](https://docs.docker.com/compose) stack defines a complete environment for local development.
 

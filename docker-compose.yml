@@ -17,12 +17,17 @@ services:
       NODE_ENV: development
 
   redoc:
-    build:
-      context: redoc
+    image: redocly/redoc
     ports:
       - ${REDOC_PORT:-4000}:80
     environment:
       SPEC_URL: http://localhost:${API_PORT:-3000}/doc
+      REDOC_OPTIONS: >-
+        disable-search=true
+        expand-responses=false
+        schema-expansion-level=all
+        json-sample-expand-level=all
+        theme={"breakpoints":{"small":"60rem","medium":"90rem","large":"120rem"},"sidebar":{"width":"400px"}}
 
   hoppscotch:
     image: hoppscotch/hoppscotch
