@@ -1,4 +1,4 @@
-# Ape Development Stack
+# Ape Dev
 
 The included [Docker Compose](https://docs.docker.com/compose) stack defines a complete environment for local development.
 
@@ -49,3 +49,4 @@ The Node.js service is configured to mount Ape repositories into its container's
 | ------------------------------------------------------------- | ------------------ | -------------------------- |
 | [Ape Commerce](https://github.com/ApeCommerce/ape-commerce)   | `../ape-commerce`  | `/home/node/ape-commerce`  |
 | [Ape Framework](https://github.com/ApeCommerce/ape-framework) | `../ape-framework` | `/home/node/ape-framework` |
+| [Ape Starter](https://github.com/ApeCommerce/ape-starter)     | `../ape-starter`   | `/home/node/ape-starter`   |
