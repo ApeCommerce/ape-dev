@@ -7,13 +7,11 @@ services:
     working_dir: /home/node
     command: tail -f /dev/null
     ports:
-      - ${API_PORT:-3000}:3000
-      - ${ADMIN_PORT:-3001}:3001
-      - ${STORE_PORT:-3002}:3002
+      - ${NODE_PORT_START:-3000}-${NODE_PORT_END:-3999}:3000-3999
     volumes:
-      - ../ape-commerce:/home/node/ape-commerce
       - ../ape-framework:/home/node/ape-framework
       - ../ape-starter:/home/node/ape-starter
+      - ../ape-commerce:/home/node/ape-commerce
     environment:
       NODE_ENV: development
 
