@@ -12,8 +12,6 @@ services:
       - ../ape-commerce:/home/node/ape-commerce
       - ../ape-framework:/home/node/ape-framework
       - ../ape-starter:/home/node/ape-starter
-    environment:
-      NODE_ENV: development
 
   redoc:
     image: redocly/redoc
