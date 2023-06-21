@@ -43,7 +43,7 @@ docker compose exec node bash
 
 The Node.js service is configured to mount Ape Framework repositories into its container's working directory:
 
-| Repository                                                        | Local directory    | Container directory        |
-| ----------------------------------------------------------------- | ------------------ | -------------------------- |
-| [Ape Framework](https://github.com/ApeCommerce/ape-framework)     | `../ape-framework` | `/home/node/ape-framework` |
-| [Ape Starter Project](https://github.com/ApeCommerce/ape-starter) | `../ape-starter`   | `/home/node/ape-starter`   |
+| Repository                                                                | Local directory    | Container directory        |
+| ------------------------------------------------------------------------- | ------------------ | -------------------------- |
+| [ApeCommerce/ape-framework](https://github.com/ApeCommerce/ape-framework) | `../ape-framework` | `/home/node/ape-framework` |
+| [ApeCommerce/ape-starter](https://github.com/ApeCommerce/ape-starter)     | `../ape-starter`   | `/home/node/ape-starter`   |
