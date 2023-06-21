@@ -18,7 +18,7 @@ services:
     ports:
       - ${REDOC_PORT:-4000}:80
     environment:
-      SPEC_URL: http://localhost:${API_PORT:-3000}/doc
+      SPEC_URL: http://localhost:${NODE_PORT_START:-3000}/doc
       REDOC_OPTIONS: >-
         disable-search=true
         expand-responses=false
