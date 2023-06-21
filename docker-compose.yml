@@ -37,8 +37,8 @@ services:
     volumes:
       - mariadb-data:/var/lib/mysql
     environment:
-      MARIADB_DATABASE: ape-commerce
-      MARIADB_USER: ape-commerce
+      MARIADB_DATABASE: ape
+      MARIADB_USER: ape
       MARIADB_PASSWORD: password
       MARIADB_ROOT_PASSWORD: password
 
