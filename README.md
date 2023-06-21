@@ -1,8 +1,8 @@
 # Ape Framework dev stack
 
-The included [Docker Compose](https://docs.docker.com/compose) stack defines a complete environment for local development.
+Development stack for Ape Framework using [Docker Compose](https://docs.docker.com/compose).
 
-It is composed of a Node.js container, recommended Ape Framework's dependencies and development tools:
+It contains a Node.js service, recommended Ape Framework's dependencies and development tools:
 
 | Service          | Description       | Local URL                               | Docker URL       |
 | ---------------- | ----------------- | --------------------------------------- | ---------------- |
@@ -35,13 +35,13 @@ docker compose up -d
 
 ## Development
 
-Get a shell from Node.js container:
+Get a shell from `node` service container:
 
 ```
 docker compose exec node bash
 ```
 
-The `node` service is configured to mount Ape Framework repositories into its container's working directory:
+The Node.js service is configured to mount Ape Framework repositories into its container's working directory:
 
 | Repository                                                        | Local directory    | Container directory        |
 | ----------------------------------------------------------------- | ------------------ | -------------------------- |
