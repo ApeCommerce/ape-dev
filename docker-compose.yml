@@ -7,7 +7,7 @@ services:
     working_dir: /home/node
     command: tail -f /dev/null
     ports:
-      - ${NODE_PORT_START:-3000}-${NODE_PORT_END:-3999}:3000-3999
+      - ${NODE_PORT_START:-3000}-${NODE_PORT_END:-3099}:3000-3099
     volumes:
       - ../ape-commerce:/home/node/ape-commerce
       - ../ape-framework:/home/node/ape-framework

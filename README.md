@@ -6,7 +6,7 @@ It is composed of a Node.js container, recommended Ape Framework's dependencies 
 
 | Service          | Description       | Local URL                               | Docker URL       |
 | ---------------- | ----------------- | --------------------------------------- | ---------------- |
-| Node             | Dev container     | [localhost:3000](http://localhost:3000) | `node:3000-3999` |
+| Node             | Dev container     | [localhost:3000](http://localhost:3000) | `node:3000-3099` |
 | ReDoc            | API documentation | [localhost:4000](http://localhost:4000) |                  |
 | Hoppscotch       | HTTP client       | [localhost:5000](http://localhost:5000) |                  |
 | MariaDB          | Primary database  | `localhost:6000`                        | `mariadb:3306`   |
