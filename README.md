@@ -2,7 +2,7 @@
 
 [Docker Compose](https://docs.docker.com/compose) development stack for Ape Framework.
 
-It is composed of a Node.js service, recommended Ape Framework dependencies and development tools:
+It contains a Node.js service, recommended Ape Framework dependencies and development tools:
 
 | Service          | Description       | Local URL                               | Docker URL       |
 | ---------------- | ----------------- | --------------------------------------- | ---------------- |
