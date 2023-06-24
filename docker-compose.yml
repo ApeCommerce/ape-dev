@@ -8,9 +8,6 @@ services:
     command: tail -f /dev/null
     ports:
       - ${NODE_PORT_START:-3000}-${NODE_PORT_END:-3099}:3000-3099
-    volumes:
-      - ../ape-framework:/home/node/ape-framework
-      - ../ape-starter:/home/node/ape-starter
 
   redoc:
     image: redocly/redoc
