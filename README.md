@@ -23,7 +23,7 @@ It features a Node.js service, recommended Ape Framework dependencies, and devel
 
 ## Setup
 
-To customize services local ports, create a `.env` file:
+To customize local ports for services, create a `.env` file:
 
 ```
 cp .env.sample .env
