@@ -1,10 +1,8 @@
-# Ape Framework development stack
+# Ape Framework development environment
 
-Development stack for [Ape Framework](https://github.com/ApeCommerce/ape-framework) using [Docker Compose](https://docs.docker.com/compose).
+Development environment for [Ape Framework](https://github.com/ApeCommerce/ape-framework) using [Docker Compose](https://docs.docker.com/compose).
 
-The `docker-compose.yml` file defines a complete environment for local development.
-
-It features a Node.js service, recommended Ape Framework dependencies, and development tools:
+It features a Node.js container, recommended Ape Framework dependencies, and development tools:
 
 | Service          | Description       | Local URL                               | Docker URL       |
 | ---------------- | ----------------- | --------------------------------------- | ---------------- |
@@ -23,21 +21,19 @@ It features a Node.js service, recommended Ape Framework dependencies, and devel
 
 ## Setup
 
-To customize local ports for services, create a `.env` file:
+Define project directories to be mounted into the Node.js container by adding volume mounts in `docker-compose.yml`:
+
+```yml
+services:
+  node:
+    volumes:
+      - ../hello-ape:/home/node/hello-ape
+```
+
+To customize services local ports, create a `.env` file:
 
 ```
 cp .env.sample .env
-```
-
-Define projects to be mounted into `node` service container:
-
-```yml
-# docker-compose.yml
-services:
-  node:
-    # ...
-    volumes:
-      - ../hello-ape:/home/node/hello-ape
 ```
 
 ## Development
@@ -45,10 +41,10 @@ services:
 Deploy stack:
 
 ```
-docker compose up -d
+docker compose up
 ```
 
-Get a shell from `node` service container:
+Get a shell from the Node.js container:
 
 ```
 docker compose exec node bash
