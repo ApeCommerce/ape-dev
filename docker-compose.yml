@@ -7,14 +7,45 @@ services:
     working_dir: /home/node
     command: tail -f /dev/null
     ports:
-      - ${NODE_PORT_START:-3000}-${NODE_PORT_END:-3099}:3000-3099
+      - ${NODE_START_PORT:-3000}-${NODE_END_PORT:-3009}:3000-3009
+
+  mariadb:
+    image: mariadb:10
+    ports:
+      - ${MARIADB_PORT:-3306}:3306
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    environment:
+      MARIADB_DATABASE: ape
+      MARIADB_USER: ape
+      MARIADB_PASSWORD: password
+      MARIADB_ROOT_PASSWORD: password
+
+  minio:
+    image: minio/minio
+    command: server /data --console-address ':9001'
+    ports:
+      - ${MINIO_PORT:-9000}:9000
+      - ${MINIO_CONSOLE_PORT:-3013}:9001
+    volumes:
+      - minio-data:/data
+    environment:
+      MINIO_ROOT_USER: root
+      MINIO_ROOT_PASSWORD: password
+
+  redis:
+    image: redis:7
+    ports:
+      - ${REDIS_PORT:-6379}:6379
+    volumes:
+      - redis-data:/data
 
   redoc:
     image: redocly/redoc
     ports:
-      - ${REDOC_PORT:-4000}:80
+      - ${REDOC_PORT:-3010}:80
     environment:
-      SPEC_URL: http://localhost:${NODE_PORT_START:-3000}/doc
+      SPEC_URL: http://localhost:${NODE_START_PORT:-3000}/doc
       REDOC_OPTIONS: >-
         disable-search=true
         expand-responses=false
@@ -25,72 +56,41 @@ services:
   hoppscotch:
     image: hoppscotch/hoppscotch
     ports:
-      - ${HOPPSCOTCH_PORT:-5000}:3000
-
-  mariadb:
-    image: mariadb:10
-    ports:
-      - ${MARIADB_PORT:-6000}:3306
-    volumes:
-      - mariadb-data:/var/lib/mysql
-    environment:
-      MARIADB_DATABASE: ape
-      MARIADB_USER: ape
-      MARIADB_PASSWORD: password
-      MARIADB_ROOT_PASSWORD: password
+      - ${HOPPSCOTCH_PORT:-3011}:3000
 
   cloudbeaver:
     image: dbeaver/cloudbeaver
     ports:
-      - ${CLOUDBEAVER_PORT:-6001}:8978
+      - ${CLOUDBEAVER_PORT:-3012}:8978
     volumes:
       - cloudbeaver-data:/opt/cloudbeaver/workspace
-
-  minio:
-    image: minio/minio
-    command: server /data --console-address ':9001'
-    ports:
-      - ${MINIO_PORT:-7000}:9000
-      - ${MINIO_CONSOLE_PORT:-7001}:9001
-    volumes:
-      - minio-data:/data
-    environment:
-      MINIO_ROOT_USER: root
-      MINIO_ROOT_PASSWORD: password
-
-  redis:
-    image: redis:7
-    ports:
-      - ${REDIS_PORT:-8000}:6379
-    volumes:
-      - redis-data:/data
 
   redis-insight:
     image: redislabs/redisinsight
     ports:
-      - ${REDIS_INSIGHT_PORT:-8001}:8001
+      - ${REDIS_INSIGHT_PORT:-3014}:8001
     volumes:
       - redis-insight-data:/db
 
   bullmq-dashboard:
     image: mattsyms/bull-board
     ports:
-      - ${BULLMQ_DASHBOARD_PORT:-8002}:3000
+      - ${BULLMQ_DASHBOARD_PORT:-3015}:3000
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
-      QUEUE_PREFIX: mq
-      QUEUE_LIST: 'sync'
+      QUEUE_PREFIX: ''
+      QUEUE_LIST: ''
 
   maildev:
     image: maildev/maildev
     ports:
       - ${MAILDEV_SMTP_PORT:-9000}:1025
-      - ${MAILDEV_UI_PORT:-9001}:1080
+      - ${MAILDEV_UI_PORT:-3016}:1080
 
 volumes:
   mariadb-data:
-  cloudbeaver-data:
   minio-data:
   redis-data:
+  cloudbeaver-data:
   redis-insight-data:

@@ -2,26 +2,26 @@
 
 Development environment for [Ape Framework](https://github.com/ApeCommerce/ape-framework) using [Docker Compose](https://docs.docker.com/compose).
 
-It features a Node.js container, recommended Ape Framework dependencies, and development tools:
+It is composed of a Node.js container, recommended Ape Framework dependencies, and development tools:
 
-| Service          | Description       | Local URL                               | Docker URL       |
-| ---------------- | ----------------- | --------------------------------------- | ---------------- |
-| Node.js          | Dev container     | [localhost:3000](http://localhost:3000) | `node:3000-3099` |
-| ReDoc            | API documentation | [localhost:4000](http://localhost:4000) |                  |
-| Hoppscotch       | HTTP client       | [localhost:5000](http://localhost:5000) |                  |
-| MariaDB          | Primary database  | `localhost:6000`                        | `mariadb:3306`   |
-| CloudBeaver      | Database manager  | [localhost:6001](http://localhost:6001) |                  |
-| MinIO            | Object storage    | `localhost:7000`                        | `minio:9000`     |
-| MinIO Console    | Storage manager   | [localhost:7001](http://localhost:7001) |                  |
-| Redis            | Caching, queueing | `localhost:8000`                        | `redis:6379`     |
-| Redis Insight    | Cache manager     | [localhost:8001](http://localhost:8001) |                  |
-| BullMQ Dashboard | Queues manager    | [localhost:8002](http://localhost:8002) |                  |
-| MailDev SMTP     | SMTP proxy        | `localhost:9000`                        | `maildev:1025`   |
-| MailDev UI       | Mail box          | [localhost:9001](http://localhost:9001) |                  |
+| Service          | Description       | Docker URL       | Local URL                               |
+| ---------------- | ----------------- | ---------------- | --------------------------------------- |
+| Node.js          | Dev container     | `node:3000-3009` | [localhost:3000](http://localhost:3000) |
+| MariaDB          | Primary database  | `mariadb:3306`   | `localhost:3306`                        |
+| MinIO            | Object storage    | `minio:9000`     | `localhost:9000`                        |
+| Redis            | Cache, queues     | `redis:6379`     | `localhost:6379`                        |
+| MailDev SMTP     | SMTP proxy        | `maildev:1025`   | `localhost:1025`                        |
+| ReDoc            | API documentation |                  | [localhost:3010](http://localhost:3010) |
+| Hoppscotch       | HTTP client       |                  | [localhost:3011](http://localhost:3011) |
+| CloudBeaver      | Database manager  |                  | [localhost:3012](http://localhost:3012) |
+| MinIO Console    | Storage manager   |                  | [localhost:3013](http://localhost:3013) |
+| Redis Insight    | Cache manager     |                  | [localhost:3014](http://localhost:3014) |
+| BullMQ Dashboard | Queues manager    |                  | [localhost:3015](http://localhost:3015) |
+| MailDev UI       | Mail box          |                  | [localhost:3016](http://localhost:3016) |
 
 ## Setup
 
-Define project directories to be mounted into the Node.js container by adding volume mounts in `docker-compose.yml`:
+Define the project directories to be mounted into the Node.js container by adding volume mounts into `docker-compose.yml`:
 
 ```yml
 services:
