@@ -85,7 +85,7 @@ services:
   maildev:
     image: maildev/maildev
     ports:
-      - ${MAILDEV_SMTP_PORT:-9000}:1025
+      - ${MAILDEV_SMTP_PORT:-1025}:1025
       - ${MAILDEV_UI_PORT:-3016}:1080
 
 volumes:
