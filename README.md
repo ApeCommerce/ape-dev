@@ -7,7 +7,7 @@ It is composed of a Node.js container, recommended Ape Framework dependencies, a
 | Service          | Description       | Docker URL       | Local URL                               |
 | ---------------- | ----------------- | ---------------- | --------------------------------------- |
 | Node.js          | Dev container     | `node:3000-3009` | [localhost:3000](http://localhost:3000) |
-| MariaDB          | Primary database  | `mariadb:3306`   | `localhost:3306`                        |
+| MySQL            | Primary database  | `mysql:3306`     | `localhost:3306`                        |
 | MinIO            | Object storage    | `minio:9000`     | `localhost:9000`                        |
 | Redis            | Cache, queues     | `redis:6379`     | `localhost:6379`                        |
 | MailDev SMTP     | SMTP proxy        | `maildev:1025`   | `localhost:1025`                        |

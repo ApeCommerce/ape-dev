@@ -9,17 +9,17 @@ services:
     ports:
       - ${NODE_START_PORT:-3000}-${NODE_END_PORT:-3009}:3000-3009
 
-  mariadb:
+  mysql:
     image: mariadb:10
     ports:
-      - ${MARIADB_PORT:-3306}:3306
+      - ${MYSQL_PORT:-3306}:3306
     volumes:
-      - mariadb-data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     environment:
-      MARIADB_DATABASE: ape
-      MARIADB_USER: ape
-      MARIADB_PASSWORD: password
-      MARIADB_ROOT_PASSWORD: password
+      MYSQL_USER: ape
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ape
 
   minio:
     image: minio/minio
@@ -89,7 +89,7 @@ services:
       - ${MAILDEV_UI_PORT:-3016}:1080
 
 volumes:
-  mariadb-data:
+  mysql-data:
   minio-data:
   redis-data:
   cloudbeaver-data:
