@@ -16,9 +16,9 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
     environment:
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_USER: ape
       MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: ape
 
   minio:
