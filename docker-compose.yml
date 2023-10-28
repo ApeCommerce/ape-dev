@@ -8,6 +8,10 @@ services:
     command: tail -f /dev/null
     ports:
       - ${NODE_START_PORT:-3000}-${NODE_END_PORT:-3009}:${NODE_START_PORT:-3000}-${NODE_END_PORT:-3009}
+    # volumes:
+    #   - ../ape-framework:/home/node/ape-framework
+    #   - ../ape-starter:/home/node/ape-starter
+    #   - ../ape-commerce:/home/node/ape-commerce
 
   mysql:
     image: mariadb:10
