@@ -7,7 +7,7 @@ services:
     working_dir: /home/node
     command: tail -f /dev/null
     ports:
-      - ${NODE_START_PORT:-3000}-${NODE_END_PORT:-3009}:3000-3009
+      - ${NODE_START_PORT:-3000}-${NODE_END_PORT:-3009}:${NODE_START_PORT:-3000}-${NODE_END_PORT:-3009}
 
   mysql:
     image: mariadb:10
@@ -26,7 +26,7 @@ services:
     command: server /data --console-address ':9001'
     ports:
       - ${MINIO_PORT:-9000}:9000
-      - ${MINIO_CONSOLE_PORT:-3013}:9001
+      - ${MINIO_CONSOLE_PORT:-3012}:9001
     volumes:
       - minio-data:/data
     environment:
@@ -45,7 +45,7 @@ services:
     ports:
       - ${REDOC_PORT:-3010}:80
     environment:
-      SPEC_URL: http://localhost:${NODE_START_PORT:-3000}/doc
+      SPEC_URL: http://localhost:${NODE_API_PORT:-3000}/doc
       REDOC_OPTIONS: >-
         disable-search=true
         expand-responses=false
@@ -53,29 +53,24 @@ services:
         json-sample-expand-level=all
         theme={"breakpoints":{"small":"60rem","medium":"90rem","large":"120rem"},"sidebar":{"width":"400px"}}
 
-  hoppscotch:
-    image: hoppscotch/hoppscotch
-    ports:
-      - ${HOPPSCOTCH_PORT:-3011}:3000
-
   cloudbeaver:
     image: dbeaver/cloudbeaver
     ports:
-      - ${CLOUDBEAVER_PORT:-3012}:8978
+      - ${CLOUDBEAVER_PORT:-3011}:8978
     volumes:
       - cloudbeaver-data:/opt/cloudbeaver/workspace
 
   redis-insight:
     image: redislabs/redisinsight
     ports:
-      - ${REDIS_INSIGHT_PORT:-3014}:8001
+      - ${REDIS_INSIGHT_PORT:-3013}:8001
     volumes:
       - redis-insight-data:/db
 
   bullmq-dashboard:
     image: mattsyms/bull-board
     ports:
-      - ${BULLMQ_DASHBOARD_PORT:-3015}:3000
+      - ${BULLMQ_DASHBOARD_PORT:-3014}:3000
     environment:
       REDIS_HOST: redis
       REDIS_PORT: 6379
@@ -86,7 +81,7 @@ services:
     image: maildev/maildev
     ports:
       - ${MAILDEV_SMTP_PORT:-1025}:1025
-      - ${MAILDEV_UI_PORT:-3016}:1080
+      - ${MAILDEV_UI_PORT:-3015}:1080
 
 volumes:
   mysql-data:
