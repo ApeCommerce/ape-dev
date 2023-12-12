@@ -2,14 +2,14 @@
 
 Development environment for [Ape Framework](https://github.com/ApeCommerce/ape-framework) using [Docker Compose](https://docs.docker.com/compose).
 
-It features a Node.js container, recommended Ape Framework dependencies, and optional development tools.
+It provides a Node.js container, recommended Ape Framework dependencies, and optional development tools.
 
 | Service          | Description       | Docker URL       | Local URL                               |
 | ---------------- | ----------------- | ---------------- | --------------------------------------- |
 | Node.js          | Dev container     | `node:3000-3009` | [localhost:3000](http://localhost:3000) |
-| MySQL            | Primary database  | `mysql:3306`     | `localhost:3306`                        |
-| MinIO            | Object storage    | `minio:9000`     | `localhost:9000`                        |
-| Redis            | Cache, queues     | `redis:6379`     | `localhost:6379`                        |
+| MySQL            | Database          | `mysql:3306`     | `localhost:3306`                        |
+| MinIO            | Storage           | `minio:9000`     | `localhost:9000`                        |
+| Redis            | Cache, Queues     | `redis:6379`     | `localhost:6379`                        |
 | MailDev SMTP     | SMTP proxy        | `maildev:1025`   | `localhost:1025`                        |
 | ReDoc            | API documentation |                  | [localhost:3010](http://localhost:3010) |
 | CloudBeaver      | Database manager  |                  | [localhost:3011](http://localhost:3011) |
@@ -20,7 +20,7 @@ It features a Node.js container, recommended Ape Framework dependencies, and opt
 
 ## Setup
 
-Define project directories to be mounted into the Node.js container by adding volume mounts in `docker-compose.yml`:
+Define project directories to be mounted into the Node.js container by editing `docker-compose.yml`:
 
 ```yml
 services:
@@ -35,13 +35,13 @@ To customize services local ports, create a `.env` file:
 cp .env.sample .env
 ```
 
-## Development
-
 Deploy stack:
 
 ```
 docker compose up
 ```
+
+## Development
 
 Get a shell from the Node.js container:
 
