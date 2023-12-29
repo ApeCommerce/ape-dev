@@ -1,8 +1,8 @@
-# Ape Framework development environment
+# Ape Framework's development environment
 
 Development environment for [Ape Framework](https://github.com/ApeCommerce/ape-framework) using [Docker Compose](https://docs.docker.com/compose).
 
-It provides a Node.js container, recommended Ape Framework dependencies, and optional development tools.
+The stack is composed of a Node.js container, recommended Ape Framework dependencies, and optional development tools.
 
 | Service          | Description       | Docker URL       | Local URL                               |
 | ---------------- | ----------------- | ---------------- | --------------------------------------- |
