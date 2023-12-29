@@ -1,4 +1,4 @@
-# Ape Framework's development environment
+# Ape Framework development environment
 
 Development environment for [Ape Framework](https://github.com/ApeCommerce/ape-framework) using [Docker Compose](https://docs.docker.com/compose).
 
